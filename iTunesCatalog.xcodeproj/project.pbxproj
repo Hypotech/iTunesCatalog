@@ -13,6 +13,8 @@
 		BC5CCBE6245B309A001E2923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC5CCBE4245B309A001E2923 /* Main.storyboard */; };
 		BC5CCBE8245B309C001E2923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC5CCBE7245B309C001E2923 /* Assets.xcassets */; };
 		BC5CCBEB245B309C001E2923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC5CCBE9245B309C001E2923 /* LaunchScreen.storyboard */; };
+		BC5CCBF4245B3230001E2923 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBF3245B3230001E2923 /* API.swift */; };
+		BC5CCBF7245B3286001E2923 /* MediaSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBF6245B3286001E2923 /* MediaSearchResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		BC5CCBE7245B309C001E2923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC5CCBEA245B309C001E2923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC5CCBEC245B309C001E2923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC5CCBF3245B3230001E2923 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		BC5CCBF6245B3286001E2923 /* MediaSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSearchResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		BC5CCBDD245B309A001E2923 /* iTunesCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				BC5CCBF5245B324F001E2923 /* Model */,
+				BC5CCBF2245B3217001E2923 /* API */,
 				BC5CCBDE245B309A001E2923 /* AppDelegate.swift */,
 				BC5CCBE0245B309A001E2923 /* SceneDelegate.swift */,
 				BC5CCBE2245B309A001E2923 /* ViewController.swift */,
@@ -65,6 +71,22 @@
 				BC5CCBEC245B309C001E2923 /* Info.plist */,
 			);
 			path = iTunesCatalog;
+			sourceTree = "<group>";
+		};
+		BC5CCBF2245B3217001E2923 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BC5CCBF3245B3230001E2923 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		BC5CCBF5245B324F001E2923 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC5CCBF6245B3286001E2923 /* MediaSearchResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +162,8 @@
 			files = (
 				BC5CCBE3245B309A001E2923 /* ViewController.swift in Sources */,
 				BC5CCBDF245B309A001E2923 /* AppDelegate.swift in Sources */,
+				BC5CCBF7245B3286001E2923 /* MediaSearchResponse.swift in Sources */,
+				BC5CCBF4245B3230001E2923 /* API.swift in Sources */,
 				BC5CCBE1245B309A001E2923 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
