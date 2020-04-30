@@ -20,11 +20,12 @@ struct MediaSearchResponse: Equatable, Identifiable {
     var podcast_episodes  = [Media]()
     var software_packages  = [Media]()
     var songs  = [Media]()
-    var featured_movies  = [Media]()
+    var featured_movies = [Media]()
+    var unknown = [Media]()
     
     init(results: [[String: Any]]) {
         for result in results {
-            let kind = result["kind"] as! String
+            let kind = result["kind"] as? String ?? "unknown"
             let media = MediaSearchResponse.convertToMedia(result: result)
 
             if kind == "book" {
@@ -71,6 +72,10 @@ struct MediaSearchResponse: Equatable, Identifiable {
                 songs.append(media)
             }
 
+            if kind == "unknown" {
+                unknown.append(media)
+            }
+
         }
     }
     
@@ -97,7 +102,7 @@ struct MediaSearchResponse: Equatable, Identifiable {
     }
     
     static private func convertToMedia(result: [String: Any]) -> Media {
-        let kind = result["kind"] as! String
+        let kind = result["kind"] as? String ?? "unknown"
         
         let name = result["trackName"] as? String ?? ""
         let artwork: URL? = {
@@ -106,12 +111,9 @@ struct MediaSearchResponse: Equatable, Identifiable {
             if let possibleURLString = result["artworkUrl100"] as? String {
                 URLString = possibleURLString
             }
-            
-            if let possibleURLString = result["artworkUrl60"] as? String {
+            else if let possibleURLString = result["artworkUrl60"] as? String {
                 URLString = possibleURLString
-            }
-
-            if let possibleURLString = result["artworkUrl30"] as? String {
+            } else if let possibleURLString = result["artworkUrl30"] as? String {
                 URLString = possibleURLString
             }
 
@@ -122,7 +124,21 @@ struct MediaSearchResponse: Equatable, Identifiable {
             return URL(string: URLString!)
         }()
         
-        let url = URL(string: result["viewURL"] as! String)!
+        let url: URL = {
+            if let urlString = result["trackViewUrl"] as? String {
+                return URL(string: urlString)!
+            }
+
+            if let urlString = result["artistViewUrl"] as? String {
+                return URL(string: urlString)!
+            }
+
+            if let urlString = result["collectionViewUrl"] as? String {
+                return URL(string: urlString)!
+            }
+
+            return URL(string: "")!
+        }()
         
         return Media(name: name, artwork: artwork, genre: kind, url: url)
     }

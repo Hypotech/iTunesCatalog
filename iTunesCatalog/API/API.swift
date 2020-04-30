@@ -10,7 +10,11 @@ import Foundation
 
 final class API {
     func searchTerm(_ term: String, completion: @escaping (MediaSearchResponse) -> Void) {
-        let searchTermURL = "https://itunes.apple.com/search?" + term
+        guard term != "" else {
+            return
+        }
+        
+        let searchTermURL = "https://itunes.apple.com/search?term=" + urlEncode(string: term) + "&limit=200"
 
         let task = URLSession.shared.dataTask(with: URL(string: searchTermURL)!) { (data, response, error) in
             guard error == nil else {
@@ -26,7 +30,7 @@ final class API {
             do {
                 let resposeDic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.init()) as? [String: Any]
                 
-                guard let resultsArray = resposeDic?["results"] as? [[String: Any] ] else {
+                guard let resultsArray = resposeDic?["results"] as? [[String: Any]], !resultsArray.isEmpty else {
                     print("Not results")
                     return
                 }
@@ -44,9 +48,9 @@ final class API {
     }
     
     private func urlEncode(string: String) -> String {
-        let string = "!*'();:@&=+$,/?%#[]{}\""
+        let charactersNotAllowed = "!*'();:@&=+$,/?%#[]{}\" "
         
-        let allowedCharaters = CharacterSet(charactersIn: string)
+        let allowedCharaters = CharacterSet(charactersIn: charactersNotAllowed).inverted
         
         let urlEncoding = string.addingPercentEncoding(withAllowedCharacters: allowedCharaters)!
         

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8988A6CC03E06F3B04E8793F /* Pods_iTunesCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0629DF8D0FC00277D6A7D66 /* Pods_iTunesCatalog.framework */; };
 		BC5CCBDF245B309A001E2923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBDE245B309A001E2923 /* AppDelegate.swift */; };
 		BC5CCBE1245B309A001E2923 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBE0245B309A001E2923 /* SceneDelegate.swift */; };
 		BC5CCBE3245B309A001E2923 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBE2245B309A001E2923 /* ViewController.swift */; };
@@ -15,9 +16,12 @@
 		BC5CCBEB245B309C001E2923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC5CCBE9245B309C001E2923 /* LaunchScreen.storyboard */; };
 		BC5CCBF4245B3230001E2923 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBF3245B3230001E2923 /* API.swift */; };
 		BC5CCBF7245B3286001E2923 /* MediaSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBF6245B3286001E2923 /* MediaSearchResponse.swift */; };
+		BC5CCBFB245B3AFA001E2923 /* SearchCatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBFA245B3AFA001E2923 /* SearchCatalogViewModel.swift */; };
+		BC758BA4245B50F2007D045F /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC758BA3245B50F2007D045F /* MediaCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A9EA2E1145077DBE2B469D2 /* Pods-iTunesCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesCatalog.release.xcconfig"; path = "Target Support Files/Pods-iTunesCatalog/Pods-iTunesCatalog.release.xcconfig"; sourceTree = "<group>"; };
 		BC5CCBDB245B309A001E2923 /* iTunesCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5CCBDE245B309A001E2923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC5CCBE0245B309A001E2923 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +32,10 @@
 		BC5CCBEC245B309C001E2923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC5CCBF3245B3230001E2923 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BC5CCBF6245B3286001E2923 /* MediaSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSearchResponse.swift; sourceTree = "<group>"; };
+		BC5CCBFA245B3AFA001E2923 /* SearchCatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCatalogViewModel.swift; sourceTree = "<group>"; };
+		BC758BA3245B50F2007D045F /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
+		E0629DF8D0FC00277D6A7D66 /* Pods_iTunesCatalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesCatalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE723CBD5F1F0E56F9C5A67E /* Pods-iTunesCatalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesCatalog.debug.xcconfig"; path = "Target Support Files/Pods-iTunesCatalog/Pods-iTunesCatalog.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8988A6CC03E06F3B04E8793F /* Pods_iTunesCatalog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2735000FB9DEC27A6FF53FF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE723CBD5F1F0E56F9C5A67E /* Pods-iTunesCatalog.debug.xcconfig */,
+				4A9EA2E1145077DBE2B469D2 /* Pods-iTunesCatalog.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BC5CCBD2245B309A001E2923 = {
 			isa = PBXGroup;
 			children = (
 				BC5CCBDD245B309A001E2923 /* iTunesCatalog */,
 				BC5CCBDC245B309A001E2923 /* Products */,
+				2735000FB9DEC27A6FF53FF6 /* Pods */,
+				E45E7AB620DF6FD0A0B1010C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,11 +80,12 @@
 		BC5CCBDD245B309A001E2923 /* iTunesCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				BC5CCBF9245B3A9A001E2923 /* ViewModel */,
+				BC5CCBF8245B3A8E001E2923 /* View */,
 				BC5CCBF5245B324F001E2923 /* Model */,
 				BC5CCBF2245B3217001E2923 /* API */,
 				BC5CCBDE245B309A001E2923 /* AppDelegate.swift */,
 				BC5CCBE0245B309A001E2923 /* SceneDelegate.swift */,
-				BC5CCBE2245B309A001E2923 /* ViewController.swift */,
 				BC5CCBE4245B309A001E2923 /* Main.storyboard */,
 				BC5CCBE7245B309C001E2923 /* Assets.xcassets */,
 				BC5CCBE9245B309C001E2923 /* LaunchScreen.storyboard */,
@@ -89,6 +110,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BC5CCBF8245B3A8E001E2923 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC5CCBE2245B309A001E2923 /* ViewController.swift */,
+				BC758BA3245B50F2007D045F /* MediaCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC5CCBF9245B3A9A001E2923 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BC5CCBFA245B3AFA001E2923 /* SearchCatalogViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E45E7AB620DF6FD0A0B1010C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0629DF8D0FC00277D6A7D66 /* Pods_iTunesCatalog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BC5CCBEF245B309C001E2923 /* Build configuration list for PBXNativeTarget "iTunesCatalog" */;
 			buildPhases = (
+				520BE96A517F689D60ECD9EB /* [CP] Check Pods Manifest.lock */,
 				BC5CCBD7245B309A001E2923 /* Sources */,
 				BC5CCBD8245B309A001E2923 /* Frameworks */,
 				BC5CCBD9245B309A001E2923 /* Resources */,
+				2E972069705BF797C57B429C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,15 +203,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E972069705BF797C57B429C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTunesCatalog/Pods-iTunesCatalog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTunesCatalog/Pods-iTunesCatalog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iTunesCatalog/Pods-iTunesCatalog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		520BE96A517F689D60ECD9EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iTunesCatalog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BC5CCBD7245B309A001E2923 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC758BA4245B50F2007D045F /* MediaCell.swift in Sources */,
 				BC5CCBE3245B309A001E2923 /* ViewController.swift in Sources */,
 				BC5CCBDF245B309A001E2923 /* AppDelegate.swift in Sources */,
 				BC5CCBF7245B3286001E2923 /* MediaSearchResponse.swift in Sources */,
 				BC5CCBF4245B3230001E2923 /* API.swift in Sources */,
+				BC5CCBFB245B3AFA001E2923 /* SearchCatalogViewModel.swift in Sources */,
 				BC5CCBE1245B309A001E2923 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,6 +398,7 @@
 		};
 		BC5CCBF0245B309C001E2923 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE723CBD5F1F0E56F9C5A67E /* Pods-iTunesCatalog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -315,7 +408,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.hipotech.iTunesCatalog;
+				PRODUCT_BUNDLE_IDENTIFIER = org.hipotech.iTunesCatlaog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -324,6 +417,7 @@
 		};
 		BC5CCBF1245B309C001E2923 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A9EA2E1145077DBE2B469D2 /* Pods-iTunesCatalog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -333,7 +427,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.hipotech.iTunesCatalog;
+				PRODUCT_BUNDLE_IDENTIFIER = org.hipotech.iTunesCatlaog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
