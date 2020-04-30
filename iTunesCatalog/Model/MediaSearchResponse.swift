@@ -140,14 +140,38 @@ struct MediaSearchResponse: Equatable, Identifiable {
             return URL(string: "")!
         }()
         
-        return Media(name: name, artwork: artwork, genre: kind, url: url)
+        let id: Int = {
+            if let trckId = result["trackId"] as? Int {
+                return trckId
+            }
+            else if let artistId = result["artistId"] as? Int {
+                return artistId
+            }
+            else if let collectionId = result["collectionId"] as? Int {
+                return collectionId
+            }
+            else {
+                return 12345
+            }
+        }()
+        
+        return Media(id: id, name: name, artwork: artwork, genre: kind, url: url)
     }
 }
 
-struct Media {
-    let id = UUID()
+class Media {
+    var id: Int
     var name: String
     var artwork: URL?
     var genre: String
     var url: URL
+    var favorite: Bool = false
+    
+    init(id: Int, name: String, artwork: URL?, genre: String, url: URL) {
+        self.id = id
+        self.name = name
+        self.artwork = artwork
+        self.genre = genre
+        self.url = url
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchCatalogVC.swift
 //  iTunesCatalog
 //
 //  Created by Christian Hipolito on 30/04/20.
@@ -10,41 +10,61 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class ViewController: UIViewController {
-    @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var tableView: UITableView!
+class SearchCatalogVC: UIViewController {
+    var favorites: [Media] {
+        return viewModel.favorites
+    }
+
+    @IBOutlet private var searchBar: UISearchBar!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
     private var disposeBag = DisposeBag()
     private let viewModel = SearchCatalogViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.dataSource = self
         tableView.delegate = self
         
+        view.bringSubviewToFront(activityIndicator)
+
         searchBar.searchTextField.delegate = self
         searchBar.rx.text.orEmpty
             .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .subscribe(onNext: {[weak self] (searchTerm) in
+                self?.activityIndicator.startAnimating()
+                
                 self?.viewModel.searchMediaWith(keyword: searchTerm) {
                     guard let self = self else {
                         return
                     }
-                    
+                                        
                     DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
                         self.tableView.reloadData()
                     }
                 }
             }).disposed(by: disposeBag)
         
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "favoritesShowSegue" {
+            let destination = segue.destination as! FavoritesVC
+             destination.configureWith(favorites: self.favorites)
+        }
+    }
+    
+    @IBAction func fooUnWindAction(unwindSegue: UIStoryboardSegue) {
+        
+    }
 }
 
 //MARK: - UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension SearchCatalogVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.viewModel.numberOfSections
     }
@@ -55,9 +75,13 @@ extension ViewController: UITableViewDataSource {
 }
 
 //MARK: - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension SearchCatalogVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MediaCellId", for: indexPath) as! MediaCell
+        
+        cell.favoriteHandler = {
+            self.viewModel.toggleFavorite(at: indexPath)
+        }
         
         let media = viewModel.media(at: indexPath)
         
@@ -91,7 +115,7 @@ extension ViewController: UITableViewDelegate {
 
 
 //MARK: - UITextFieldDelegate
-extension ViewController: UITextFieldDelegate {
+extension SearchCatalogVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         

@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8988A6CC03E06F3B04E8793F /* Pods_iTunesCatalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0629DF8D0FC00277D6A7D66 /* Pods_iTunesCatalog.framework */; };
+		BC4ACCAC245B6E4C0082F24E /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4ACCAB245B6E4C0082F24E /* FavoritesVC.swift */; };
+		BC4ACCAE245B7CDB0082F24E /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4ACCAD245B7CDB0082F24E /* FavoritesCell.swift */; };
 		BC5CCBDF245B309A001E2923 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBDE245B309A001E2923 /* AppDelegate.swift */; };
 		BC5CCBE1245B309A001E2923 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBE0245B309A001E2923 /* SceneDelegate.swift */; };
-		BC5CCBE3245B309A001E2923 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBE2245B309A001E2923 /* ViewController.swift */; };
+		BC5CCBE3245B309A001E2923 /* SearchCatalogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CCBE2245B309A001E2923 /* SearchCatalogVC.swift */; };
 		BC5CCBE6245B309A001E2923 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC5CCBE4245B309A001E2923 /* Main.storyboard */; };
 		BC5CCBE8245B309C001E2923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC5CCBE7245B309C001E2923 /* Assets.xcassets */; };
 		BC5CCBEB245B309C001E2923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC5CCBE9245B309C001E2923 /* LaunchScreen.storyboard */; };
@@ -22,10 +24,12 @@
 
 /* Begin PBXFileReference section */
 		4A9EA2E1145077DBE2B469D2 /* Pods-iTunesCatalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesCatalog.release.xcconfig"; path = "Target Support Files/Pods-iTunesCatalog/Pods-iTunesCatalog.release.xcconfig"; sourceTree = "<group>"; };
+		BC4ACCAB245B6E4C0082F24E /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
+		BC4ACCAD245B7CDB0082F24E /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		BC5CCBDB245B309A001E2923 /* iTunesCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5CCBDE245B309A001E2923 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC5CCBE0245B309A001E2923 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BC5CCBE2245B309A001E2923 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BC5CCBE2245B309A001E2923 /* SearchCatalogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCatalogVC.swift; sourceTree = "<group>"; };
 		BC5CCBE5245B309A001E2923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC5CCBE7245B309C001E2923 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC5CCBEA245B309C001E2923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -113,8 +117,10 @@
 		BC5CCBF8245B3A8E001E2923 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC5CCBE2245B309A001E2923 /* ViewController.swift */,
+				BC5CCBE2245B309A001E2923 /* SearchCatalogVC.swift */,
 				BC758BA3245B50F2007D045F /* MediaCell.swift */,
+				BC4ACCAB245B6E4C0082F24E /* FavoritesVC.swift */,
+				BC4ACCAD245B7CDB0082F24E /* FavoritesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,10 +256,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC4ACCAC245B6E4C0082F24E /* FavoritesVC.swift in Sources */,
 				BC758BA4245B50F2007D045F /* MediaCell.swift in Sources */,
-				BC5CCBE3245B309A001E2923 /* ViewController.swift in Sources */,
+				BC5CCBE3245B309A001E2923 /* SearchCatalogVC.swift in Sources */,
 				BC5CCBDF245B309A001E2923 /* AppDelegate.swift in Sources */,
 				BC5CCBF7245B3286001E2923 /* MediaSearchResponse.swift in Sources */,
+				BC4ACCAE245B7CDB0082F24E /* FavoritesCell.swift in Sources */,
 				BC5CCBF4245B3230001E2923 /* API.swift in Sources */,
 				BC5CCBFB245B3AFA001E2923 /* SearchCatalogViewModel.swift in Sources */,
 				BC5CCBE1245B309A001E2923 /* SceneDelegate.swift in Sources */,

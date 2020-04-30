@@ -12,6 +12,7 @@ final class SearchCatalogViewModel {
     var numberOfSections: Int {
         return sections.count
     }
+    private(set) var favorites = [Media]()
     
     private var sections = [Section]()
     private let api = API()
@@ -106,6 +107,27 @@ final class SearchCatalogViewModel {
     
     func media(at index: IndexPath) -> Media {
         return sections[index.section].rows[index.row]
+    }
+    
+    func toggleFavorite(at index: IndexPath) {
+        let media = sections[index.section].rows[index.row]
+            
+        media.favorite.toggle()
+        
+        if media.favorite {
+            favorites.append(media)
+        }
+        else {
+            let possibleIdex = favorites.firstIndex {
+                $0.id == media.id
+            }
+            
+            guard let index = possibleIdex else {
+                return
+            }
+            
+            favorites.remove(at: index)
+        }
     }
 }
 

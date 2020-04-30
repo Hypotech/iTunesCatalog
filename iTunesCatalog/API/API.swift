@@ -11,6 +11,7 @@ import Foundation
 final class API {
     func searchTerm(_ term: String, completion: @escaping (MediaSearchResponse) -> Void) {
         guard term != "" else {
+            completion(MediaSearchResponse(results: []))
             return
         }
         
